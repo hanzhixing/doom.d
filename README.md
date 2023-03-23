@@ -1,1 +1,1 @@
-# doom.d
+# Personal doomeamcs configuration
