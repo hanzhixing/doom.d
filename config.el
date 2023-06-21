@@ -34,6 +34,17 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
+;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;; (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
+;; (add-hook 'window-setup-hook #'toggle-frame-maximized)
+(pushnew! initial-frame-alist '(width . 100) '(height . 40))
+
+(setq doom-font (font-spec :size 17))
+
+;; (setq doom-theme 'wombat)
+;; (custom-set-faces!
+;;   `(hl-line :underline nil))
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -41,7 +52,6 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
-
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
