@@ -3,11 +3,18 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+;; Disable exit prompt. See: https://github.com/doomemacs/doomemacs/issues/2688
+(setq confirm-kill-emacs nil)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Zhixing Han"
+      user-mail-address "zhixing.han.0409@gmail.com")
+
+;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;; (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
+;; (add-hook 'window-setup-hook #'toggle-frame-maximized)
+;(pushnew! initial-frame-alist '(width . 100) '(height . 40))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -29,21 +36,17 @@
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
+;(setq doom-font (font-spec :size 17))
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
-;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
-;; (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
-;; (add-hook 'window-setup-hook #'toggle-frame-maximized)
-(pushnew! initial-frame-alist '(width . 100) '(height . 40))
-
-(setq doom-font (font-spec :size 17))
-
 ;; (setq doom-theme 'wombat)
 ;; (custom-set-faces!
 ;;   `(hl-line :underline nil))
+
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -51,7 +54,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/any/org/")
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -84,3 +87,4 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
