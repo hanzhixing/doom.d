@@ -3,18 +3,15 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-;; Disable exit prompt. See: https://github.com/doomemacs/doomemacs/issues/2688
+;; NOTE
+;; https://github.com/doomemacs/doomemacs/issues/2688
 (setq confirm-kill-emacs nil)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "Zhixing Han"
-      user-mail-address "zhixing.han.0409@gmail.com")
+;; (setq user-full-name "John Doe"
+;;       user-mail-address "john@doe.com")
 
-;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
-;; (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
-;; (add-hook 'window-setup-hook #'toggle-frame-maximized)
-;(pushnew! initial-frame-alist '(width . 100) '(height . 40))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -36,17 +33,25 @@
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
-;(setq doom-font (font-spec :size 17))
+;; NOTE for normal
+(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 20.0))
+
+;; NOTE for org
+;(setq doom-font (font-spec :family "Sarasa Mono SC" :size 20.0))
+
+;; NOTE 调整字体大小需要同时调整窗口大小
+;; https://discourse.doomemacs.org/t/maximize-or-fullscreen-emacs-on-startup/135
+;; https://emacs-china.org/t/doom-emacs/10434
+;; (pushnew! initial-frame-alist '(width . 100) '(height . 40))
+;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;; (add-hook 'window-setup-hook #'toggle-frame-maximized)
+;; (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
+(pushnew! initial-frame-alist '(width . 90) '(height . 35))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
-
-;; (setq doom-theme 'wombat)
-;; (custom-set-faces!
-;;   `(hl-line :underline nil))
-
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -88,3 +93,15 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; NOTE
+(after! org
+  (setq org-confirm-babel-evaluate t)
+
+  (setq org-todo-keywords
+        '((sequence "TODO" "DOING" "WAITING" "|" "DONE" "CANCEL")))
+  (setq org-todo-keyword-faces
+        '(("TODO" . "red")
+          ("DOING" . "yellow")
+          ("WAITING" . "orange")
+          ("DONE" . "green")
+          ("CANCEL" . "black"))))
