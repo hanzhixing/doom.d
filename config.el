@@ -35,9 +35,14 @@
 
 ;; NOTE for normal
 (setq doom-font (font-spec :family "DejaVu Sans Mono" :size 20.0))
+;(setq doom-font (font-spec :family "Fira Code" :size 20.0))
+;(setq doom-font (font-spec :family "JetBrains Mono" :size 20.0))
+;(setq doom-font (font-spec :family "Source Code Pro" :size 20.0))
 
 ;; NOTE for org
 ;(setq doom-font (font-spec :family "Sarasa Mono SC" :size 20.0))
+;(setq doom-font (font-spec :family "Noto Sans Mono CJK SC" :size 20.0))
+;(setq doom-font (font-spec :family "Ubuntu Mono" :size 20.0))
 
 ;; NOTE 调整字体大小需要同时调整窗口大小
 ;; https://discourse.doomemacs.org/t/maximize-or-fullscreen-emacs-on-startup/135
@@ -46,7 +51,7 @@
 ;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 ;; (add-hook 'window-setup-hook #'toggle-frame-maximized)
 ;; (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
-(pushnew! initial-frame-alist '(width . 90) '(height . 35))
+(pushnew! initial-frame-alist '(width . 90) '(height . 30))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
