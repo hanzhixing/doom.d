@@ -34,13 +34,13 @@
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
 ;; NOTE for normal
-(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 20.0))
+;(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 20.0))
 ;(setq doom-font (font-spec :family "Fira Code" :size 20.0))
 ;(setq doom-font (font-spec :family "JetBrains Mono" :size 20.0))
 ;(setq doom-font (font-spec :family "Source Code Pro" :size 20.0))
 
 ;; NOTE for org
-;(setq doom-font (font-spec :family "Sarasa Mono SC" :size 20.0))
+(setq doom-font (font-spec :family "Sarasa Mono SC" :size 20.0))
 ;(setq doom-font (font-spec :family "Noto Sans Mono CJK SC" :size 20.0))
 ;(setq doom-font (font-spec :family "Ubuntu Mono" :size 20.0))
 
