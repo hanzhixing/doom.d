@@ -1,0 +1,30 @@
+# -*- mode: snippet -*-
+# name: glossary
+# key: ybgl
+# --
+#+title: ${1:}
+
+* Form
+** ko-CN-x-yanbian
+- ${2:}
+** ko-CN-x-gyeongsang
+- ${3:}
+* Gloss
+** ko-KR
+- ${4:}
+- ${5:}
+** zh-Hans-CN
+- ${6:}
+- ${7:}
+* Example
+** 1
+*** ko-CN-x-yanbian
+${8}
+*** ko-KR
+${9:}
+** 2
+*** ko-CN-x-yanbian
+${10:}
+*** ko-KR
+${11:}
+$0
