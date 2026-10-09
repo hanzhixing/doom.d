@@ -3,6 +3,9 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+;; hide menubar totally
+(menu-bar-mode -1)
+
 ;; NOTE
 ;; https://github.com/doomemacs/doomemacs/issues/2688
 (setq confirm-kill-emacs nil)
@@ -96,6 +99,17 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; 1. Remap basic TOML buffers to Tree-sitter
+(add-to-list 'major-mode-remap-alist '(conf-toml-mode . toml-ts-mode))
+
+;; 2. Automatically start Eglot in TOML files
+(add-hook 'toml-ts-mode-hook #'eglot-ensure)
+
+(after! eglot
+  ;; Teach eglot the correct CLI arguments to start taplo's language server mode via stdin/stdout
+  (add-to-list 'eglot-server-programs
+               '((conf-toml-mode toml-ts-mode) . ("taplo" "lsp" "stdio"))))
+
 ;; NOTE
 (after! org
   (setq org-confirm-babel-evaluate t)
@@ -108,3 +122,15 @@
           ("WAITING" . "orange")
           ("DONE" . "green")
           ("CANCEL" . "black"))))
+
+;; call commands which are in lima vm using bridges need these
+(after! flycheck
+  (setq flycheck-check-syntax-automatically '(save idle-change))
+  (setq flycheck-idle-change-delay 3.0)
+  (setq flycheck-process-error-functions nil)
+  (setq flycheck-navigation-minimum-level 'error)
+  (setq flycheck-display-errors-delay 1.0))
+
+(after! apheleia
+  (setq apheleia-post-format-hook nil)
+  (setq apheleia-timeout 10.0))

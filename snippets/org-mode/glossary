@@ -2,29 +2,91 @@
 # name: glossary
 # key: ybgl
 # --
-#+title: ${1:}
-
-* Form
+* Variant - 变体
 ** ko-CN-x-yanbian
-- ${2:}
-** ko-CN-x-gyeongsang
-- ${3:}
-* Gloss
-** ko-KR
-- ${4:}
-- ${5:}
-** zh-Hans-CN
-- ${6:}
-- ${7:}
-* Example
+*** 1
+**** Form - 形式
+${1:}
+**** Pronunciation - 发音
+***** Phonetic - 音标
+****** ko-CN
+${2:}
+****** IPA
+${3:}
+***** Audio - 音频
+[[${5:}]]
+* Compound - 合成词
 ** 1
-*** ko-CN-x-yanbian
-${8}
-*** ko-KR
-${9:}
-** 2
-*** ko-CN-x-yanbian
-${10:}
-*** ko-KR
-${11:}
+*** Text
+${6:}
+*** Phonetic - 音标
+**** ko-CN
+${7:}
+**** IPA
+${8:}
+*** Gloss - 语义
+**** ko-KR
+- ${9:}
+**** zh-Hans-CN
+- ${10:}
+*** Audio - 音频
+[[${11:}]]
+* Image
+- [[${12:}]]
+* Sense - 释义
+** 1
+*** Gloss - 语义
+**** ko-KR
+- ${13:}
+**** zh-Hans-CN
+- ${14:}
+*** Grammatical - 词性
+**** ko-CN
+${15:}
+*** Definition - 定义
+**** ko-KR
+${16:}
+*** Inflection - 变形
+${17:}
+*** Etymology - 词源
+**** 1
+***** ko
+****** Text
+${18:}
+****** Note
+${19:}
+****** IPA
+${20:}
+***** zh
+****** Text
+${21:}
+****** Note
+${22:}
+****** IPA
+${23:}
+***** ja
+****** Text
+${24:}
+****** Note
+${25:}
+****** IPA
+${26:}
+***** ru
+****** Text
+${27:}
+****** Note
+${28:}
+****** IPA
+${29:}
+*** Synonym - 近义词
+- ${30:}
+*** Example - 例句
+**** 1
+***** ko-CN-x-yanbian
+****** Text
+${31:}
+****** Audio
+[[${32:}]]
+***** ko-KR
+${33}
 $0

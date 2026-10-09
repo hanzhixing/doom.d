@@ -14,6 +14,28 @@
 ;;   Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;   directory (for easy access to its source code).
 
+;; Doomemacs一启动就会启动很多线程进行eln编译，占用几乎所有CPU导致卡顿可能的原因。
+;; 范围: emacs-plus以外所有Emacs版本。
+;; 0. emacs-plus的特点是Emacs.app/Contents/Frameworks/native-lisp/几乎是空的，但反而不会导致卡顿。
+;;    只有Emacs.app/Contents/native-lisp/31.1-13805da3/preloaded/ns-win-ef8075c0-84e2c5cc.eln
+;; 1. 虽然Emacs.app/Contents/Frameworks/native-lisp/中预编译了很多eln，
+;;    但这些可能因为是编译后再移动到Applications目录，所以hash对不上，所有验证过程占用CPU
+;; 2. MacOS会检查验证加载App bundle加载文件的过程（不知道）
+;;
+;; 可能的解决办法有如下
+;;
+;1. 彻底关闭 JIT 编译
+;(setq native-comp-jit-compilation nil)
+
+;2. 限制同时运行的 JIT 编译进程数为 2
+(setq native-comp-async-jobs-number 2)
+
+
+;3. 修改native-comp-eln-load-path，不让emacs加载Emacs.app中的eln
+(setq native-comp-eln-load-path
+      (list (expand-file-name "~/.emacs.d/.local/cache/eln/")
+            (expand-file-name "~/.emacs.d/.local/cache/nonexistent/")))
+
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
        ;;chinese
@@ -108,7 +130,7 @@
        ;;pdf               ; pdf enhancements
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
-       tree-sitter       ; syntax and parsing, sitting in a tree...
+       (tree-sitter +files)       ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
